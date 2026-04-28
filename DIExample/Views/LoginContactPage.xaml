@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="DIExample.Views.LoginContactPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewmodels="clr-namespace:DIExample.ViewModels"
+    Title="כניסה עם פרטי קשר"
+    x:DataType="viewmodels:LoginContactViewModel">
+
+    <Grid
+        Padding="30"
+        RowDefinitions="Auto, *, Auto"
+        RowSpacing="20"
+        VerticalOptions="Center">
+
+        <Label
+            Grid.Row="0"
+            FontAttributes="Bold"
+            FontSize="32"
+            HorizontalOptions="Center"
+            Text="זיהוי משתמש" />
+
+        <Border
+            Grid.Row="1"
+            Padding="20"
+            StrokeShape="RoundRectangle 15">
+            <Grid RowDefinitions="Auto, Auto, Auto, Auto" RowSpacing="15">
+                <Label Grid.Row="0" Text="מספר טלפון" />
+                <Entry
+                    Grid.Row="1"
+                    Keyboard="Telephone"
+                    Placeholder="05X-XXXXXXX"
+                    Text="{Binding Phone}" />
+
+                <Label Grid.Row="2" Text="אימייל" />
+                <Entry
+                    Grid.Row="3"
+                    Keyboard="Email"
+                    Placeholder="example@mail.com"
+                    Text="{Binding Email}" />
+            </Grid>
+        </Border>
+
+        <Button
+            Grid.Row="2"
+            Command="{Binding LoginCommand}"
+            CornerRadius="10"
+            HeightRequest="50"
+            Text="שלח קוד אימות" />
+    </Grid>
+</ContentPage>

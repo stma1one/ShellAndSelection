@@ -3,7 +3,10 @@
     x:Class="DIExample.Views.PlayerDetailsPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    Title="פרטי שחקן">
+    xmlns:models="clr-namespace:DIExample.Models"
+    xmlns:viewmodels="clr-namespace:DIExample.ViewModels"
+    Title="פרטי שחקן"
+    x:DataType="viewmodels:PlayerDetailsViewModel">
 
     <!--  שימוש ב-ScrollView למקרה שהמסך יהיה קטן והתוכן יחרוג  -->
     <ScrollView>
