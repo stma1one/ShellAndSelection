@@ -8,7 +8,8 @@ namespace DIExample.Models
 {
 	public class PlayerScore:ObservableObject
 	{
-		 private string? _name;
+		private string profileImage;
+		private string? _name;
 		private int _score;
 		public string? Name
 		{
@@ -34,5 +35,17 @@ namespace DIExample.Models
 			}
 		}
 
+		public string ProfileImage
+		{
+			get => profileImage;
+			set
+			{
+				if (profileImage != value)
+				{
+					profileImage = value;
+					OnPropertyChanged();
+				}
+			}
+		}
 	}
 }

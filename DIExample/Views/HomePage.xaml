@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="DIExample.Views.HomePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="דף הבית">
+
+    <Grid
+        Padding="20"
+        HorizontalOptions="Center"
+        RowDefinitions="*, Auto, *"
+        VerticalOptions="Center">
+
+        <!--  תמונה מרכזית  -->
+        <Image
+            Grid.Row="0"
+            Margin="0,0,0,30"
+            Aspect="AspectFit"
+            HeightRequest="200"
+            HorizontalOptions="Center"
+            Source="dotnet_bot.png"
+            VerticalOptions="End"
+            WidthRequest="200" />
+
+        <!--  כותרת ותיאור  -->
+        <VerticalStackLayout
+            Grid.Row="1"
+            HorizontalOptions="Center"
+            Spacing="15">
+            <Label
+                FontAttributes="Bold"
+                FontSize="28"
+                HorizontalTextAlignment="Center"
+                Text="ברוכים הבאים לאפליקציה שלי!"
+                TextColor="{AppThemeBinding Light={StaticResource Primary},
+                                            Dark=White}" />
+
+            <Label
+                FontSize="18"
+                HorizontalTextAlignment="Center"
+                LineBreakMode="WordWrap"
+                Text="זוהי אפליקציה לדוגמה המדגימה שימוש ב-MAUI, הזרקת תלויות, וניווט מתקדם עם Shell."
+                TextColor="Gray" />
+        </VerticalStackLayout>
+
+    </Grid>
+</ContentPage>
