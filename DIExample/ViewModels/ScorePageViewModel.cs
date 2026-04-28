@@ -96,7 +96,24 @@ namespace DIExample.ViewModels
 
 		private async Task ShowPlayerDetails(PlayerScore p)
 		{
-			await Application.Current.Windows[0].Page.DisplayAlert("מסך פרטי משתמש", $"זהו פרטי השחקן {p.Name} ", "אישור");
+			//הצגת הודעה שלא דרך הshell
+			//await Application.Current.Windows[0].Page.DisplayAlert("מסך פרטי משתמש", $"זהו פרטי השחקן {p.Name} ", "אישור");
+			//הצגת הודעה דרך הshell
+			//await Shell.Current.DisplayAlert("מסך פרטי משתמש", $"זהו פרטי השחקן {p.Name} ", "אישור");
+			//מעבר למסך פרטי שחקן עם פרמטר פשוט (פרימיטיבי)
+			//await Shell.Current.GoToAsync($"PlayerDetails?name={p.Name}");
+			//העברה אובייקט ושישמר בזכרון
+			/*Dictionary<string,object> param= new Dictionary<string, object>();
+			param.Add("player", p);
+			await Shell.Current.GoToAsync($"PlayerDetails?name={p.Name}", param);
+			*/
+			//העברת פרמטר שנמחק כאשר עוברים למסך החדש
+			ShellNavigationQueryParameters param = new ShellNavigationQueryParameters
+			{
+				{"player",p }
+			};
+			await Shell.Current.GoToAsync($"PlayerDetails?name={p.Name}", param);
+
 		}
 	}
 }

@@ -7,7 +7,30 @@
     xmlns:views="clr-namespace:DIExample.Views"
     Title="DIExample">
 
-
+    <Shell.FlyoutHeader>
+        <StackLayout
+            Padding="20"
+            BackgroundColor="#2196F3"
+            VerticalOptions="Center">
+            <Label
+                FontAttributes="Bold"
+                FontSize="24"
+                HorizontalOptions="Center"
+                Text="ברוכים הבאים!" />
+        </StackLayout>
+    </Shell.FlyoutHeader>
+    <Shell.FlyoutFooter>
+        <HorizontalStackLayout
+            Padding="20"
+            BackgroundColor="#2196F3"
+            VerticalOptions="Center">
+            <Label
+                FontAttributes="Bold"
+                FontSize="24"
+                HorizontalOptions="Center"
+                Text="נוצר על ידי טל" />
+        </HorizontalStackLayout>
+    </Shell.FlyoutFooter>
     <ShellContent
         Title="מסך פתיחה"
         ContentTemplate="{DataTemplate views:HomePage}"

@@ -14,7 +14,7 @@
         <Grid
             Padding="20"
             HorizontalOptions="Center"
-            RowDefinitions="Auto, Auto, Auto, Auto"
+            RowDefinitions="Auto,Auto, Auto, Auto, Auto"
             RowSpacing="20"
             VerticalOptions="Center">
 
@@ -80,6 +80,7 @@
                         HorizontalOptions="Center"
                         Text="{Binding Player.Score}"
                         TextColor="Green" />
+
                 </Grid>
             </Border>
 
@@ -95,6 +96,10 @@
                     TextColor="Gray" />
 
             </HorizontalStackLayout>
+            <Label
+                Grid.Row="4"
+                FontSize="24"
+                Text="{Binding PlayerName}" />
 
         </Grid>
     </ScrollView>

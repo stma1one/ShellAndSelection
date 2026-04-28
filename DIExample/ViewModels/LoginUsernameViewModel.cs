@@ -43,6 +43,7 @@ namespace DIExample.ViewModels
 				await Shell.Current.DisplayAlert("שגיאה", "יש להזין שם משתמש וסיסמה", "אישור");
 				return;
 			}
+			
 
 			// כאן תלמד את התלמידים להוסיף לוגיקת אימות וניווט ב-Shell
 			await Shell.Current.DisplayAlert("התחברות", $"ברוך הבא, {Username}!", "אישור");

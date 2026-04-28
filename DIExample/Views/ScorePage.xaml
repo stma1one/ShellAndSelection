@@ -33,7 +33,7 @@
         <CollectionView
             ItemsSource="{Binding Players}"
             SelectedItem="{Binding SelectedPlayer}"
-            SelectionMode="Single">
+            SelectionMode="None">
             <CollectionView.EmptyView>
                 <VerticalStackLayout HeightRequest="300">
                     <Label Text="יאללה הבייתה" />
