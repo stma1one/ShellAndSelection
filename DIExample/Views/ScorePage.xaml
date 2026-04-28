@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="DIExample.Views.ScorePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:models="clr-namespace:DIExample.Models"
+    xmlns:viewmodels="clr-namespace:DIExample.ViewModels"
+    Title="ScorePage"
+    x:DataType="viewmodels:ScorePageViewModel"
+    FlowDirection="RightToLeft">
+    <VerticalStackLayout
+        Padding="30"
+        HorizontalOptions="Center"
+        Spacing="20"
+        VerticalOptions="Center">
+        <Label
+            FontAttributes="Bold"
+            FontSize="30"
+            HorizontalOptions="Center"
+            Text="המובילים שלנו:" />
+
+        <Label
+            FontSize="24"
+            HorizontalOptions="Center"
+            Text="{Binding ScoresDisplayText}" />
+        <Picker
+            Title="בחר שם שחקן"
+            ItemDisplayBinding="{Binding Name}"
+            ItemsSource="{Binding Players}"
+            SelectedItem="{Binding SelectedPlayer}" />
+
+        <Button Command="{Binding AddPlayerCommand}" Text="הוסף שחקן" />
+
+        <CollectionView
+            ItemsSource="{Binding Players}"
+            SelectedItem="{Binding SelectedPlayer}"
+            SelectionMode="Single">
+            <CollectionView.EmptyView>
+                <VerticalStackLayout HeightRequest="300">
+                    <Label Text="יאללה הבייתה" />
+                    <Image Source="dotnet_bot.png" />
+                </VerticalStackLayout>
+            </CollectionView.EmptyView>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:PlayerScore">
+                    <!--  עיצוב של "כרטיס" עבור כל שחקן  -->
+                    <Border
+                        Margin="0,0,0,15"
+                        Padding="20,15"
+                        BackgroundColor="White"
+                        Stroke="#E1E1E1"
+                        StrokeThickness="1">
+
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="12" />
+                        </Border.StrokeShape>
+
+                        <Border.Shadow>
+                            <Shadow
+                                Brush="Black"
+                                Opacity="0.08"
+                                Radius="6"
+                                Offset="0,4" />
+                        </Border.Shadow>
+
+                        <Grid ColumnDefinitions="*, Auto, Auto" ColumnSpacing="3">
+                            <!--  שם השחקן (מיושר לשמאל/ימין תלוי בשפה)  -->
+                            <Label
+                                Grid.Column="0"
+                                FontAttributes="Bold"
+                                FontSize="18"
+                                Text="{Binding Name}"
+                                VerticalOptions="Center" />
+
+                            <!--  הניקוד (מיושר לצד השני וצבוע בצבע הראשי)  -->
+                            <Label
+                                Grid.Column="1"
+                                FontAttributes="Bold"
+                                FontSize="22"
+                                Text="{Binding Score}"
+                                TextColor="Blue"
+                                VerticalOptions="Center" />
+                            <Button Grid.Column="2" Text="הצג פרטים" />
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <Button Text=" נקה בחירה" Command="{Binding ClearSelectionCommand}" />
+    </VerticalStackLayout>
+</ContentPage>
