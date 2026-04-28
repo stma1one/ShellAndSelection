@@ -32,6 +32,11 @@ namespace DIExample
 		public static MauiAppBuilder AddPages(this MauiAppBuilder builder)
 		{
 			builder.Services.AddTransient<ScorePage>();
+			builder.Services.AddSingleton<LoginUsernamePage>();
+			builder.Services.AddSingleton<LoginContactPage>();
+			builder.Services.AddSingleton<HomePage>();
+			builder.Services.AddTransient<PlayerDetailsPage>();
+			
 
 			return builder;
 
@@ -39,6 +44,10 @@ namespace DIExample
 		public static MauiAppBuilder AddViewModels(this MauiAppBuilder builder)
 		{
 			builder.Services.AddTransient<ScorePageViewModel>();
+			builder.Services.AddSingleton<LoginUsernameViewModel>();
+			builder.Services.AddSingleton<LoginContactViewModel>();
+			builder.Services.AddSingleton<HomePage>();
+			builder.Services.AddTransient<PlayerDetailsViewModel>();
 
 			return builder;
 

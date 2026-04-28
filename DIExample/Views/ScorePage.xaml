@@ -5,7 +5,6 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:models="clr-namespace:DIExample.Models"
     xmlns:viewmodels="clr-namespace:DIExample.ViewModels"
-    Title="ScorePage"
     x:DataType="viewmodels:ScorePageViewModel"
     FlowDirection="RightToLeft">
     <VerticalStackLayout
@@ -44,49 +43,75 @@
 
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="models:PlayerScore">
-                    <!--  עיצוב של "כרטיס" עבור כל שחקן  -->
-                    <Border
-                        Margin="0,0,0,15"
-                        Padding="20,15"
-                        BackgroundColor="White"
-                        Stroke="#E1E1E1"
-                        StrokeThickness="1">
+                    <SwipeView>
+                        <SwipeView.RightItems>
+                            <SwipeItems>
+                                <SwipeItem
+                                    BackgroundColor="LightGreen"
+                                    Command="{Binding x:DataType='viewmodels:ScorePageViewModel', Source={RelativeSource AncestorType={x:Type viewmodels:ScorePageViewModel}}, Path=ShowPlayerDetailsCommand}"
+                                    CommandParameter="{Binding .}"
+                                    IconImageSource="delete.png"
+                                    Text="מחיקה" />
 
-                        <Border.StrokeShape>
-                            <RoundRectangle CornerRadius="12" />
-                        </Border.StrokeShape>
+                                <SwipeItem IconImageSource="favorite.png" Text="מועדפים" />
+                            </SwipeItems>
+                        </SwipeView.RightItems>
 
-                        <Border.Shadow>
-                            <Shadow
-                                Brush="Black"
-                                Opacity="0.08"
-                                Radius="6"
-                                Offset="0,4" />
-                        </Border.Shadow>
+                        <SwipeView.LeftItems />
+                        <!--  עיצוב של "כרטיס" עבור כל שחקן  -->
+                        <Border
+                            Margin="0,0,0,15"
+                            Padding="20,15"
+                            BackgroundColor="White"
+                            Stroke="#E1E1E1"
+                            StrokeThickness="1">
 
-                        <Grid ColumnDefinitions="*, Auto, Auto" ColumnSpacing="3">
-                            <!--  שם השחקן (מיושר לשמאל/ימין תלוי בשפה)  -->
-                            <Label
-                                Grid.Column="0"
-                                FontAttributes="Bold"
-                                FontSize="18"
-                                Text="{Binding Name}"
-                                VerticalOptions="Center" />
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="12" />
+                            </Border.StrokeShape>
 
-                            <!--  הניקוד (מיושר לצד השני וצבוע בצבע הראשי)  -->
-                            <Label
-                                Grid.Column="1"
-                                FontAttributes="Bold"
-                                FontSize="22"
-                                Text="{Binding Score}"
-                                TextColor="Blue"
-                                VerticalOptions="Center" />
-                            <Button Grid.Column="2" Text="הצג פרטים" />
-                        </Grid>
-                    </Border>
+                            <Border.Shadow>
+                                <Shadow
+                                    Brush="Black"
+                                    Opacity="0.08"
+                                    Radius="6"
+                                    Offset="0,4" />
+                            </Border.Shadow>
+
+                            <Grid ColumnDefinitions="*, Auto, Auto" ColumnSpacing="3">
+                                <!--  שם השחקן (מיושר לשמאל/ימין תלוי בשפה)  -->
+                                <Label
+                                    Grid.Column="0"
+                                    FontAttributes="Bold"
+                                    FontSize="18"
+                                    Text="{Binding Name}"
+                                    VerticalOptions="Center" />
+
+                                <!--  הניקוד (מיושר לצד השני וצבוע בצבע הראשי)  -->
+                                <Label
+                                    Grid.Column="1"
+                                    FontAttributes="Bold"
+                                    FontSize="22"
+                                    Text="{Binding Score}"
+                                    TextColor="Blue"
+                                    VerticalOptions="Center" />
+                                <Button
+                                    Grid.Column="2"
+                                    Command="{Binding x:DataType='viewmodels:ScorePageViewModel', Source={RelativeSource AncestorType={x:Type viewmodels:ScorePageViewModel}}, Path=ShowPlayerDetailsCommand}"
+                                    CommandParameter="{Binding .}"
+                                    Text="הצג פרטים" />
+                            </Grid>
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Command="{Binding x:DataType='viewmodels:ScorePageViewModel', Source={RelativeSource AncestorType={x:Type viewmodels:ScorePageViewModel}}, Path=ShowPlayerDetailsCommand}"
+                                    CommandParameter="{Binding .}"
+                                    NumberOfTapsRequired="2" />
+                            </Border.GestureRecognizers>
+                        </Border>
+                    </SwipeView>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-        <Button Text=" נקה בחירה" Command="{Binding ClearSelectionCommand}" />
+        <Button Command="{Binding ClearSelectionCommand}" Text=" נקה בחירה" />
     </VerticalStackLayout>
 </ContentPage>

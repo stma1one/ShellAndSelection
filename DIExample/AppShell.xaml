@@ -7,9 +7,29 @@
     xmlns:views="clr-namespace:DIExample.Views"
     Title="DIExample">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate views:ScorePage}"
-        Route="MainPage" />
 
+    <ShellContent
+        Title="מסך פתיחה"
+        ContentTemplate="{DataTemplate views:HomePage}"
+        Icon="favorite.png"
+        Route="HomePage" />
+    <ShellContent
+        Title="ריכוז תוצאות"
+        ContentTemplate="{DataTemplate views:ScorePage}"
+        Icon="delete.png"
+        Route="TotalScores" />
+    <FlyoutItem FlyoutIcon="dotnet_bot.png">
+
+        <ShellContent
+            Title="כניסת משתמש"
+            ContentTemplate="{DataTemplate views:LoginUsernamePage}"
+            Route="LoginPage" />
+        <ShellContent
+            Title="שחזור פרטי כניסה"
+            ContentTemplate="{DataTemplate views:LoginContactPage}"
+            Route="LoginContact" />
+
+    </FlyoutItem>
 </Shell>
+
+

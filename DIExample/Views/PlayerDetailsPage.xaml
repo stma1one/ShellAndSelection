@@ -93,10 +93,7 @@
                     FontSize="16"
                     Text="תאריך:"
                     TextColor="Gray" />
-                <Label
-                    FontAttributes="Bold"
-                    FontSize="16"
-                    Text="{Binding Player.Date, StringFormat='{0:dd/MM/yyyy}'}" />
+
             </HorizontalStackLayout>
 
         </Grid>

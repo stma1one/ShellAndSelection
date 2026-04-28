@@ -13,7 +13,7 @@ namespace DIExample
 
 		protected override Window CreateWindow(IActivationState? activationState)
 		{
-			return new Window(startPage);
+			return new Window(new AppShell());
 		}
 	}
 }

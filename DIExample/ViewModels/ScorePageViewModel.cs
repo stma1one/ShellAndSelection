@@ -1,4 +1,5 @@
-﻿using DIExample.Models;
+﻿
+using DIExample.Models;
 using DIExample.Services;
 using System;
 using System.Collections.Generic;
@@ -23,6 +24,11 @@ namespace DIExample.ViewModels
 			get; private set;
 		}
 		public ICommand ClearSelectionCommand{
+			get; private set;
+		}
+
+		public ICommand ShowPlayerDetailsCommand
+		{
 			get; private set;
 		}
 		public PlayerScore SelectedPlayer
@@ -80,11 +86,17 @@ namespace DIExample.ViewModels
 			Players = new ObservableCollection<PlayerScore>(PlayerScores);
 			//פעולות
 			AddPlayerCommand = new Command(() => Players.Add(new PlayerScore() { Name = "Tal", Score = 400 }));
-			ClearSelectionCommand = new Command(() => SelectedPlayer = null,()=>SelectedPlayer!=null);	
+			ClearSelectionCommand = new Command(() => SelectedPlayer = null,()=>SelectedPlayer!=null);
+			ShowPlayerDetailsCommand = new Command<PlayerScore>(async (p) => await ShowPlayerDetails(p));
 	
 			ScoresDisplayText = string.Join("\n", PlayerScores.Select(s => $"{s.Name} - {s.Score}"));
 
 
+		}
+
+		private async Task ShowPlayerDetails(PlayerScore p)
+		{
+			await Application.Current.Windows[0].Page.DisplayAlert("מסך פרטי משתמש", $"זהו פרטי השחקן {p.Name} ", "אישור");
 		}
 	}
 }
