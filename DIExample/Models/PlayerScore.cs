@@ -8,7 +8,7 @@ namespace DIExample.Models
 {
 	public class PlayerScore:ObservableObject
 	{
-		private string profileImage;
+		private string? profileImage;
 		private string? _name;
 		private int _score;
 		public string? Name
@@ -35,7 +35,7 @@ namespace DIExample.Models
 			}
 		}
 
-		public string ProfileImage
+		public string? ProfileImage
 		{
 			get => profileImage;
 			set

@@ -12,11 +12,11 @@ namespace DIExample.ViewModels
 	//[QueryProperty(nameof(Player),"player")]
 	public class PlayerDetailsViewModel : ViewModelBase,IQueryAttributable
 	{
-		private string playerName;
-		private PlayerScore _player;
+		private string? playerName;
+		private PlayerScore? _player;
 
 		// המאפיין שיחזיק את נתוני השחקן שיוצגו במסך
-		public PlayerScore Player
+		public PlayerScore? Player
 		{
 			get => _player;
 			set
@@ -29,7 +29,7 @@ namespace DIExample.ViewModels
 			}
 		}
 
-		public string PlayerName
+		public string? PlayerName
 		{
 			get => playerName;
 			set
@@ -43,7 +43,7 @@ namespace DIExample.ViewModels
 			// הבנאי כרגע ריק, הנתונים יגיעו דרך הניווט
 		}
 	
-		public void ApplyQueryAttributes(IDictionary<string, object> query)
+		public void ApplyQueryAttributes(IDictionary<string?, object> query)
 		{
 			Player = query["player"] as PlayerScore;
 			//אם יש תווים מיוחדים או עברית לא ניתן להמיר ישירות (פרמטר פרימיטיבי)
@@ -53,7 +53,7 @@ namespace DIExample.ViewModels
 		}
 		private async Task RetrunToHomeAsync()
 		{
-			Shell.Current.GoToAsync("//ScorePage/PlayerDetails/fff");
+			await Shell.Current.GoToAsync("//ScorePage/PlayerDetails/fff");
 
 		}
 	}

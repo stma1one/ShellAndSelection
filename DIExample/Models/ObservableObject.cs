@@ -11,7 +11,7 @@ namespace DIExample.Models
 	public class ObservableObject : INotifyPropertyChanged
 	{
 		public event PropertyChangedEventHandler? PropertyChanged;
-		protected  void OnPropertyChanged([CallerMemberName] string propertyName = null)
+		protected  void OnPropertyChanged([CallerMemberName] string? propertyName = null)
 		{
 			PropertyChanged?.Invoke(PropertyChanged, new PropertyChangedEventArgs(propertyName));
 		}

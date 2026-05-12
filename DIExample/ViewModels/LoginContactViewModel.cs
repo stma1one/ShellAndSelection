@@ -4,10 +4,10 @@ namespace DIExample.ViewModels
 {
 	public class LoginContactViewModel : ViewModelBase
 	{
-		private string _phone;
-		private string _email;
+		private string? _phone;
+		private string? _email;
 
-		public string Phone
+		public string? Phone
 		{
 			get => _phone;
 			set
@@ -16,7 +16,7 @@ namespace DIExample.ViewModels
 			}
 		}
 
-		public string Email
+		public string? Email
 		{
 			get => _email;
 			set

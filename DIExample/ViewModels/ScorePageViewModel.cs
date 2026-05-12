@@ -16,8 +16,8 @@ namespace DIExample.ViewModels
 		//תלויות
 		private IScoreService _dataService;
 		private List<PlayerScore> PlayerScores;
-		private string scoresDisplayText;
-		private PlayerScore selectedPlayer;
+		private string? scoresDisplayText;
+		private PlayerScore? selectedPlayer;
 
 		public ICommand AddPlayerCommand
 		{
@@ -31,7 +31,7 @@ namespace DIExample.ViewModels
 		{
 			get; private set;
 		}
-		public PlayerScore SelectedPlayer
+		public PlayerScore? SelectedPlayer
 		{
 			get => selectedPlayer;
 			set
@@ -56,7 +56,7 @@ namespace DIExample.ViewModels
 
 		}
 
-		public string ScoresDisplayText
+		public string? ScoresDisplayText
 		{
 			get
 			{

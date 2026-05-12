@@ -4,10 +4,10 @@ namespace DIExample.ViewModels
 {
 	public class LoginUsernameViewModel : ViewModelBase
 	{
-		private string _username;
-		private string _password;
+		private string? _username;
+		private string? _password;
 
-		public string Username
+		public string? Username
 		{
 			get => _username;
 			set
@@ -16,7 +16,7 @@ namespace DIExample.ViewModels
 			}
 		}
 
-		public string Password
+		public string? Password
 		{
 			get => _password;
 			set

@@ -24,7 +24,7 @@
             Text="{Binding ScoresDisplayText}" />
         <Picker
             Title="בחר שם שחקן"
-            ItemDisplayBinding="{Binding Name}"
+            ItemDisplayBinding="{Binding x:DataType='models:PlayerScore', Path=Name}"
             ItemsSource="{Binding Players}"
             SelectedItem="{Binding SelectedPlayer}" />
 
