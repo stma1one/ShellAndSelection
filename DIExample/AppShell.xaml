@@ -41,7 +41,7 @@
         ContentTemplate="{DataTemplate views:ScorePage}"
         Icon="delete.png"
         Route="TotalScores" />
-    <FlyoutItem FlyoutIcon="dotnet_bot.png">
+    <FlyoutItem Title="כניסה" FlyoutIcon="dotnet_bot.png">
 
         <ShellContent
             Title="כניסת משתמש"
